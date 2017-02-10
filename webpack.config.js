@@ -24,6 +24,10 @@ filename: './public/bundle.js'
 },
 resolve: {
   root: __dirname,
+  modulesDirectories: [
+    'node_modules',
+    './app/components'
+  ],
   alias: {
     Nav: 'app/components/Nav.jsx',
     applicationStyles: 'app/styles/app.scss'
