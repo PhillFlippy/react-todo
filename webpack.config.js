@@ -26,7 +26,8 @@ resolve: {
   root: __dirname,
   modulesDirectories: [
     'node_modules',
-    './app/components'
+    './app/components',
+    './app/api'
   ],
   alias: {
     Nav: 'app/components/Nav.jsx',
