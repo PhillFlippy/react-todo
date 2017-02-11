@@ -2,28 +2,29 @@ var React = require('react');
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
 var TodoSearch = require('TodoSearch');
+var uuid = require('uuid');
 var ToDoApp = React.createClass({
   getInitialState: function(){
     return {
       showCompleted: false,
       searchText: '',
       todos: [{
-        id:1,
+        id: uuid(),
         text: 'Walk the dog',
         description: "faasdf"
       },
       {
-        id: 2,
+        id: uuid(),
         text: 'Clean the yard',
         description: "faasdf"
       },
       {
-        id:3,
+        id:uuid(),
         text: 'Take out trash',
         description: "faasdf"
       },
       {
-        id: 4,
+        id: uuid(),
         text: 'Vacuum',
         description: "faasdf"
       }
@@ -31,13 +32,23 @@ var ToDoApp = React.createClass({
   };
   },
   handleSetTask:function(newTask, newDescr){
-    var arrayvar = this.state.todos.slice()
-    var lol = { id: arrayvar.length+1,
-    text:newTask,
-    description: newDescr
-  };
-  arrayvar.push(lol);
-  this.setState({ todos: arrayvar });
+    this.setState({
+      todos: [
+        ...this.state.todos,
+        {
+          id: uuid(),
+          text: newTask,
+          description: newDescr
+        }
+      ]
+    });
+  //   var arrayvar = this.state.todos.slice()
+  //   var lol = { id: arrayvar.length+1,
+  //   text:newTask,
+  //   description: newDescr
+  // };
+  // arrayvar.push(lol);
+  // this.setState({ todos: arrayvar });
   },
   handleSearch: function(showCompleted, searchText){
     this.setState({
