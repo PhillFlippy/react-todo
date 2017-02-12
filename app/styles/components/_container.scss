@@ -8,6 +8,7 @@
 .container__header{
   border-bottom: 1px solid $light-grey;
   padding: 1rem;
+
   label {
     cursor: pointer;
     font-size: 1rem;
@@ -26,4 +27,8 @@
   color: $light-color;
   margin: 2rem auto;
   text-align: center;
+}
+.container__middle{
+  overflow: auto;
+  height: 20rem;
 }
