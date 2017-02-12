@@ -1,6 +1,7 @@
 //third party libraries
 var React = require('react');
 var uuid = require('node-uuid');
+var moment = require('moment');
 //local
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
@@ -26,17 +27,12 @@ var ToDoApp = React.createClass({
           id: uuid(),
           text: newTask,
           description: newDescr,
-          completed: false
+          completed: false,
+          createdAt: moment().unix(),
+          completedAt: undefined
         }
       ]
     });
-  //   var arrayvar = this.state.todos.slice()
-  //   var lol = { id: arrayvar.length+1,
-  //   text:newTask,
-  //   description: newDescr
-  // };
-  // arrayvar.push(lol);
-  // this.setState({ todos: arrayvar });
   },
   handleSearch: function(showCompleted, searchText){
     this.setState({
@@ -48,6 +44,7 @@ var ToDoApp = React.createClass({
     var updatedTodos = this.state.todos.map( (todo) => {
         if (todo.id === id){
           todo.completed = !todo.completed;
+          todo.completedAt = todo.completed ? moment().unix() : undefined;
         }
         return todo;
     });
