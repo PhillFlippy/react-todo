@@ -9,7 +9,7 @@ handleSearch: function(){
 },
 render: function(){
   return (
-    <div className="search-todo">
+    <div className="container__header">
       <div>
         <input type="search" ref="searchText" placeholder="Search todo" onChange={this.handleSearch}/>
     </div>
