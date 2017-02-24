@@ -31,7 +31,10 @@ resolve: {
   ],
   alias: {
     Nav: 'app/components/Nav.jsx',
-    applicationStyles: 'app/styles/app.scss'
+    applicationStyles: 'app/styles/app.scss',
+    actions: 'app/actions/actions.jsx',
+    reducers: 'app/Reducers/Reducers.jsx',
+    configureStore: 'app/store/configureStore'
   },
 extensions: ['', '.js', '.jsx']
 },
@@ -39,7 +42,7 @@ module: {
   loaders: [{
     loader: 'babel-loader',
     query: {
-      presets: ['react', 'es2015']
+      presets: ['react', 'es2015', 'stage-0']
     },
     test: /\.jsx?$/,
     exclude: /(node_modules|bower_components)/
