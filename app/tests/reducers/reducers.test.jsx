@@ -26,12 +26,17 @@ describe('Reducers', ()=>{
     it('should add new todo', ()=> {
       var action = {
         type: 'ADD_TODO',
-        text: 'walk the dog',
-        description: 'take dog'
+        todo: {
+          id: '2431324',
+          text: 'blah blah',
+          description: 'blah blah',
+          completed: false,
+          createdAt: 123253,
+        }
       };
       var res = reducers.todoReducer(df([]), df(action));
       expect(res.length).toEqual(1);
-      expect(res[0].text).toEqual(action.text);
+      expect(res[0]).toEqual(action.todo);
     });
     it('should toggle todo', () => {
       var todos = [{
@@ -42,13 +47,19 @@ describe('Reducers', ()=>{
         createdAt: 123,
         completedAt: 125
       }];
+      var updates = {
+        completed: false,
+        completedAt: null
+      };
       var action = {
-        type: 'TOGGLE_TODO',
-        id: '123'
+        type: 'UPDATE_TODO',
+        id: todos[0].id,
+        updates
       };
       var res = reducers.todoReducer(df(todos), df(action));
-      expect(res[0].completed).toEqual(false);
-      expect(res[0].completedAt).toEqual(undefined);
+      expect(res[0].completed).toEqual(updates.completed);
+      expect(res[0].completedAt).toEqual(updates.completedAt);
+      expect(res[0].text).toEqual(todos[0].text);
     });
     it('should add existing todos', () => {
       var todos = [{
