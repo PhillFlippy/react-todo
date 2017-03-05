@@ -30,7 +30,21 @@ describe('Actions', ()=> {
     var res = actions.addTodo(action.todo);
     expect(res).toEqual(action);
   });
-
+  it('should generate login action object', () => {
+    const action = {
+      type: 'LOGIN',
+    uid: 'sdafsadfasdf'
+    };
+    const res = actions.login(action.uid);
+    expect(res).toEqual(action);
+  });
+  it('should generate logout action', () => {
+    const action = {
+      type: 'LOGOUT'
+    };
+    const res = actions.logout();
+    expect(res).toEqual(action)
+  });
   it ('should create todo and dispatch add_todo', (done) => {
     const store = createMockStore({});
     const todoText = 'my todo item';
