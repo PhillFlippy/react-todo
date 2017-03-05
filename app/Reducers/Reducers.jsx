@@ -42,6 +42,8 @@ export var todoReducer = (state=[], action) => {
         ...state,
         ...action.todos
       ];
+      case 'LOGOUT':
+      return [];
       case 'UPDATE_TODO':
       return state.map((todo) => {
         if (todo.id === action.id){
