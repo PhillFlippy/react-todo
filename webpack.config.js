@@ -9,7 +9,7 @@ try{
 } catch (e) {
 
 }
-console.log( 'config/' + process.env.NODE_ENV + '.env');
+
 module.exports= {
 entry: [
         'script!jquery/dist/jquery.min.js',
